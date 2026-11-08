@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import errorHandler from './middlewares/error.middleware.js';
 import uploadRoutes from './routes/upload.routes.js';
 import analyticsRoutes from './routes/analytics.routes.js';
+import readingRoutes from './routes/reading.routes.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -23,6 +24,7 @@ app.use(morgan('dev'));
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 app.use('/api/upload', uploadRoutes);
 app.use('/api/analytics', analyticsRoutes);
+app.use('/api/readings', readingRoutes);
 
 // 3. Routes will be mounted here in the next steps
 
